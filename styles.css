@@ -1,0 +1,400 @@
+/* General Styling */
+:root {
+    --primary-color: #6F4E37; /* Coffee Brown (Dominant Text/Heading) */
+    --secondary-color: #A0836F; /* Lighter Brown (Subtle Text/Details) */
+    --accent-color: #D4A373; /* Tan/Gold (Highlights/Buttons) */
+    --text-color: #333;
+    --light-bg: #FDF7F0; /* Creamy White (Main Background) */
+    --dark-bg: #4F3323; /* Darker Brown (Header/Footer) */
+    --white: #FFFFFF;
+    --border-color: #E8E2DD;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #C08D59; /* Darker accent */
+}
+
+/* Header */
+header {
+    background: var(--dark-bg);
+    color: var(--white);
+    padding: 20px 0;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+header h1 {
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 0;
+    color: var(--secondary-color);
+}
+
+header nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin-top: 15px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav a {
+    color: var(--white);
+    font-weight: bold;
+    padding-bottom: 5px;
+    transition: border-bottom 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    /* Placeholder background image - feel free to change! */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1500x500/4F3323/D4A373?text=Network+Background+Image') no-repeat center center/cover;
+    color: var(--white);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 40px 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: var(--light-bg);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.hero-text {
+    flex: 2;
+}
+
+.hero-text h2, .hero-text p {
+    text-align: left;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Styling for the Profile Picture in Hero Section */
+.hero-image img.profile-pic {
+    width: 250px;       /* Sesuaikan lebar foto */
+    height: 250px;      /* Sesuaikan tinggi foto */
+    object-fit: cover;  /* Penting: Memastikan gambar memenuhi area tanpa terdistorsi */
+    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+    border: 5px solid var(--accent-color); /* Menambah border dengan warna aksen */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Memberi efek bayangan yang lebih baik */
+    transition: transform 0.3s ease; /* Tambah sedikit animasi hover */
+}
+
+/* Optional: Efek hover */
+.hero-image img.profile-pic:hover {
+    transform: scale(1.05); /* Sedikit membesar saat di-hover */
+}
+
+/* Pastikan styling untuk div .placeholder-image telah dihapus atau di-comment */
+/*
+.placeholder-image {
+    display: none; // Atau hapus seluruh blok ini jika sudah tidak dipakai
+}
+*/
+
+.placeholder-image {
+    width: 200px;
+    height: 200px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 0.9em;
+    text-align: center;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section:nth-of-type(even) {
+    background-color: var(--light-bg); /* Creamy white for alternating sections */
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--accent-color);
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-color);
+}
+
+.skill-category li::before {
+    content: '▶'; /* Custom bullet point */
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-size: 1em;
+    top: 0;
+}
+
+.skill-name {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-color);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.project-card h3 a {
+    color: var(--primary-color);
+}
+
+.project-card h3 a:hover {
+    color: var(--accent-color);
+}
+
+.project-card p {
+    font-size: 0.95em;
+    color: var(--secondary-color);
+}
+
+.tech-stack {
+    font-style: italic;
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-bg);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    border-top: 3px solid var(--accent-color);
+}
+
+/* Responsive Design (Keep this for good practice) */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    header nav ul li {
+        margin-right: 15px;
+    }
+
+    .about-content, .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h2, .hero-text p {
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+
+    .skills-grid, .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
